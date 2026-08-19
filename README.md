@@ -1,5 +1,11 @@
 # WBAN Anomaly Detection — Dynamic Two-Stage Hybrid ML Framework
 
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.35%2B-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)](https://streamlit.io)
+[![scikit-learn](https://img.shields.io/badge/scikit--learn-1.4%2B-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)](https://scikit-learn.org)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.16%2B-FF6F00?style=flat-square&logo=tensorflow&logoColor=white)](https://tensorflow.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
+
 A dynamic hybrid machine learning system for anomaly detection and classification of health signals in Wireless Body Area Networks (WBANs). The framework combines a fast gatekeeper screening layer with an SVR-based contextual triage layer to reduce false alarms and categorize physiological anomalies into clinically meaningful classes — deployed through an interactive Streamlit dashboard.
 
 > End-Sem Laboratory Project (CS F366) — BITS Pilani, Hyderabad Campus
@@ -50,15 +56,15 @@ The complete pipeline is exposed through a Streamlit dashboard that accepts raw 
 ## Project Structure
 
 ```
-wban-anomaly-detection/
-├── wban_dashboard.py       # Main Streamlit application
-├── Algo1_Expanded.ipynb    # Jupyter notebook (Colab-compatible) for batch experimentation
+WBAN-Anomaly-Detection/
+├── wban_dashboard.py       # Main Streamlit application (data pipeline + models + UI)
 ├── requirements.txt        # Pinned dependency list
-├── bits_logo.png           # University logo (for report)
-└── data/                   # Sample telemetry CSV files
-    ├── patient_01.csv
-    ├── patient_02.csv
-    └── ...
+├── notebooks/
+│   └── Algo1.ipynb         # Colab-compatible notebook for batch experimentation
+├── data/
+│   └── dataset.zip         # Sample multi-patient telemetry CSVs (extract before use)
+└── docs/
+    └── paper.pdf            # Project report
 ```
 
 ---
@@ -72,7 +78,8 @@ wban-anomaly-detection/
 | imbalanced-learn | ≥ 0.12 | RandomOverSampler |
 | pandas | ≥ 2.2 | Data ingestion, feature frames |
 | NumPy | ≥ 1.26 | Numerical operations, windowing |
-| Matplotlib / Seaborn | ≥ 3.8 | Visualization |
+| Matplotlib | ≥ 3.8 | Visualization |
+| Seaborn | ≥ 0.13 | Visualization |
 | Streamlit | ≥ 1.35 | Interactive dashboard |
 
 ---
@@ -85,8 +92,8 @@ wban-anomaly-detection/
 ### Installation
 
 ```bash
-git clone https://github.com/<your-username>/wban-anomaly-detection.git
-cd wban-anomaly-detection
+git clone https://github.com/HarshalShah0508/WBAN-Anomaly-Detection.git
+cd WBAN-Anomaly-Detection
 pip install -r requirements.txt
 ```
 
@@ -96,11 +103,11 @@ pip install -r requirements.txt
 streamlit run wban_dashboard.py
 ```
 
-Then open the local URL Streamlit prints (typically `http://localhost:8501`), upload one or more telemetry CSVs from `data/`, select the gatekeeper model(s) to run, and click **Run Pipeline**.
+Then open the local URL Streamlit prints (typically `http://localhost:8501`), upload one or more telemetry CSVs (unzip `data/dataset.zip` for a sample multi-patient dataset), select the gatekeeper model(s) to run, and click **Run Pipeline**.
 
 ### Running the Notebook
 
-`Algo1_Expanded.ipynb` is Colab-compatible and can be used for batch experimentation, model tuning, and generating the comparative figures independently of the dashboard.
+`notebooks/Algo1.ipynb` is Colab-compatible and can be used for batch experimentation, model tuning, and generating the comparative figures independently of the dashboard.
 
 ---
 
@@ -161,4 +168,4 @@ Developed under the guidance of Prof. Chittaranjan Hota, Department of Computer 
 
 ## License
 
-Add a license of your choice (e.g., MIT) here.
+MIT — see [LICENSE](LICENSE).
